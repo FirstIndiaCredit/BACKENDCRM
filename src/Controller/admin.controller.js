@@ -50,32 +50,32 @@ export const adminLogin = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-// export const adminSignup = async (req, res) => {
-//   try {
-//     const { ID, password } = req.body;
+export const adminSignup = async (req, res) => {
+  try {
+    const { ID, password } = req.body;
 
-//     // Check if user already exists
-//     if (await adminExists(ID)) {
-//       return res.status(400).json({ message: "Admin already exists" });
-//     }
+    // Check if user already exists
+    if (await adminExists(ID)) {
+      return res.status(400).json({ message: "Admin already exists" });
+    }
 
-//     // Hash password for security
-//     const hashedPassword = await Admin.hashPassword(password);
+    // Hash password for security
+    const hashedPassword = await Admin.hashPassword(password);
 
-//     // Create new user
-//     const admin = new Admin({
-//       ID,
-//       password: hashedPassword,
-//     });
+    // Create new user
+    const admin = new Admin({
+      ID,
+      password: hashedPassword,
+    });
 
-//     await admin.save();
+    await admin.save();
 
-//     res.status(201).json({ message: "Admin created successfully" });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
+    res.status(201).json({ message: "Admin created successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 export default {
   adminLogin,
   verifyToken,
