@@ -14,7 +14,7 @@ import {
   agentDelete,
   agentLogout,
 } from "../Controller/agent.controller.js";
-import { adminLogin } from "../Controller/admin.controller.js";
+import { adminLogin, adminSignup } from "../Controller/admin.controller.js";
 import verifyToken from "../Middlewares/UserAuth.middleware.js";
 import { upload } from "../Middlewares/multer.middleware.js";
 const router1 = express.Router();
@@ -36,7 +36,7 @@ router1.route("/agent/signup").post(
 );
 router1.route("/agent/allagents").get(allAgents);
 router1.route("/agent/agentdetail").get(agentDetail);
-// router1.route("/admin/signup").post(adminSignup);
+router1.route("/admin/signup").post(adminSignup);
 router1.route("/admin/login").post(adminLogin);
 
 router1.get("/user/dashboard", verifyToken, (req, res) => {
