@@ -20,6 +20,7 @@ const corsOptions = {
     "https://crm-eosin-six.vercel.app",
     "http://localhost:5173",
     "http://localhost:5174",
+    "https://frontendcrm-nine.vercel.app",
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
