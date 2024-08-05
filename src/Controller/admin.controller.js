@@ -79,5 +79,5 @@ export const adminSignup = async (req, res) => {
 export default {
   adminLogin,
   verifyToken,
-  // adminSignup,
+  adminSignup,
 };
