@@ -21,6 +21,7 @@ const corsOptions = {
     "http://localhost:5173",
     "http://localhost:5174",
     "https://frontendcrm-nine.vercel.app",
+    "https://crm.firstindiacredit.com",
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
