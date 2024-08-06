@@ -304,11 +304,11 @@ export const verifyOTP = async (req, res) => {
   try {
     const { userId, otp } = req.body;
     if (!userId || !otp) {
-      return res.status(400).json({ message: "User ID and OTP are required" });
+      return res.status(400).json({ message: "OTP are required" });
     }
     const userOTPRecord = await userOTPVerification.findOne({ userId });
     if (!userOTPRecord) {
-      return res.status(400).json({ message: "Invalid User ID" });
+      return res.status(400).json({ message: "User do not exist" });
     }
 
     if (userOTPRecord.expiredAt < Date.now()) {
@@ -333,7 +333,11 @@ export const allAgents = async (req, res) => {
   try {
     const agents = await Agent.find({});
     console.log("Fetched agents:", agents);
-    const allAgents = agents.map((agent) => agent.toObject());
+    const allAgents = agents.map((agent) => ({
+      _id: agent._id,
+      referralId: agent.referralId,
+      name: agent.Name,
+    }));
     console.log("Sending allAgents:", allAgents);
     return res.status(200).json({ allAgents });
   } catch (error) {
