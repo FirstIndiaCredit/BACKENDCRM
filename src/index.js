@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 // CORS configuration
 const corsOptions = {
-  // origin: ["https://crm.firstindiacredit.com", "http://localhost:5173"],
-  origin: true,
+  origin: ["https://crm.firstindiacredit.com", "http://localhost:5173"],
+  // origin: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
