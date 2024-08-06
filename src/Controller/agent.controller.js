@@ -336,7 +336,7 @@ export const allAgents = async (req, res) => {
     const allAgents = agents.map((agent) => ({
       _id: agent._id,
       referralId: agent.referralId,
-      name: agent.Name,
+      Name: agent.Name,
     }));
     console.log("Sending allAgents:", allAgents);
     return res.status(200).json({ allAgents });
